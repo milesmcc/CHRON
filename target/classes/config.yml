@@ -1,0 +1,17 @@
+jobs:
+  backup:
+    interval:
+      start: 1445796463610 # The epoch time of the start date. Need help? Use http://currentmillis.com/
+      every: 600 # The interval to repeat, in seconds.
+    commands:
+      - g:say Server backup starting!                                         # g: means that it's a game command.
+      - g:zip . ./backups/{epoch}-backup.zip                                  # the 'zip' command is a feature of wget, a premium spigot plugin
+      - g:say Server backup completed!                                        # everything after the colon is the command to execute
+      - s:mv ~/ServerDirectory/backup/{epoch}-backup.zip ~/GoogleDriveFolder/backups/{epoch}-backup.zip # s: means it's a shell command
+      # Remember, these will run in sequence!
+# Dont want it to repeat? Set 'every' to a negative number.
+
+# Variables: {epoch} (milliseconds since Jan. 1 1970 UTC)
+
+
+data:
